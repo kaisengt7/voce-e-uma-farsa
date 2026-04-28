@@ -1,0 +1,263 @@
+/* ============================================================
+   VOCÊ É UMA FARSA — Design System Tokens
+   Everton Teles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---------- Brand colors ---------- */
+  --farsa-black: #0A0A0A;          /* fundo principal */
+  --farsa-ink:   #141414;          /* preto suave para superfícies */
+  --farsa-coal:  #1F1F1F;          /* superfície elevada */
+  --farsa-graphite: #2A2A2A;       /* borda escura */
+
+  --farsa-red:        #D81E1E;     /* vermelho da capa */
+  --farsa-red-deep:   #A50F0F;     /* vermelho sangue / hover */
+  --farsa-red-ember:  #F23E3E;     /* brasa, brilho */
+  --farsa-red-tint:   #2A0808;     /* fundo tintado */
+
+  --farsa-bone:  #F4F1EC;          /* off-white quente, papel */
+  --farsa-paper: #EFE9DF;          /* papel envelhecido */
+  --farsa-white: #FFFFFF;
+  --farsa-ash:   #B8B3AB;          /* cinza quente */
+  --farsa-fog:   #6E6A64;          /* cinza médio */
+
+  /* Estados (consistentes com a paleta) */
+  --farsa-success: #6A8E3F;
+  --farsa-warning: #C9892A;
+  --farsa-danger:  var(--farsa-red);
+
+  /* ---------- Tipografia ---------- */
+  --font-display: 'Bebas Neue', 'Oswald', Impact, sans-serif;     /* títulos brutais, condensados */
+  --font-display-alt: 'Oswald', Impact, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;               /* corpo editorial */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Escala tipográfica (modular ratio 1.333 — Perfect Fourth) */
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-40: 2.5rem;
+  --fs-56: 3.5rem;
+  --fs-72: 4.5rem;
+  --fs-96: 6rem;
+  --fs-128: 8rem;
+
+  /* ---------- Espaçamento (base 4px) ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* ---------- Raios (sistema brutalista — pouquíssimo arredondado) ---------- */
+  --r-0: 0px;
+  --r-1: 2px;
+  --r-2: 4px;
+  --r-pill: 999px;
+
+  /* ---------- Sombras ---------- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.6);
+  --shadow-red: 0 12px 40px rgba(216, 30, 30, 0.35);
+  --shadow-stamp: 6px 6px 0 var(--farsa-red); /* selo brutalista */
+
+  /* ---------- Linhas / bordas ---------- */
+  --bd-thin: 1px solid var(--farsa-graphite);
+  --bd-bold: 2px solid var(--farsa-white);
+  --bd-stamp: 3px solid var(--farsa-red);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--farsa-black);
+  color: var(--farsa-bone);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   TYPE STYLES
+   ============================================================ */
+.t-mega {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.t-display {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-72);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-56);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-40);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.t-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-32);
+  line-height: 1.25;
+  font-weight: 500;
+}
+.t-lead {
+  font-family: var(--font-serif);
+  font-size: var(--fs-24);
+  line-height: 1.5;
+  font-weight: 400;
+}
+.t-body {
+  font-family: var(--font-serif);
+  font-size: var(--fs-18);
+  line-height: 1.7;
+}
+.t-body-sans {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: 1.6;
+}
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  color: var(--farsa-ash);
+}
+.t-code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  color: var(--farsa-ash);
+}
+
+/* Tipografia com TEXTURA grunge para títulos hero (efeito da capa) */
+.t-grunge {
+  position: relative;
+  display: inline-block;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.45) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.35) 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(0,0,0,0.4) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 15%, rgba(0,0,0,0.3) 0 1px, transparent 2px);
+  background-size: 7px 7px, 11px 11px, 13px 13px, 9px 9px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* Para grunge precisa do texto base por trás */
+.grunge-wrap {
+  position: relative;
+  display: inline-block;
+}
+.grunge-wrap::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(10,10,10,0.7) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(10,10,10,0.6) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(10,10,10,0.55) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 85% 15%, rgba(10,10,10,0.5) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 10% 70%, rgba(10,10,10,0.5) 0 1px, transparent 2px);
+  background-size: 5px 5px, 9px 9px, 11px 11px, 7px 7px, 13px 13px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+}
+
+/* Helpers de cor */
+.c-red    { color: var(--farsa-red); }
+.c-bone   { color: var(--farsa-bone); }
+.c-white  { color: var(--farsa-white); }
+.c-ash    { color: var(--farsa-ash); }
+.bg-black { background: var(--farsa-black); }
+.bg-ink   { background: var(--farsa-ink); }
+.bg-red   { background: var(--farsa-red); }
+.bg-bone  { background: var(--farsa-bone); color: var(--farsa-black); }
+
+/* Estrutura comum das páginas do design system */
+.ds-page {
+  min-height: 100vh;
+  padding: var(--sp-9) var(--sp-8);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.ds-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: var(--bd-thin);
+  padding-bottom: var(--sp-5);
+  margin-bottom: var(--sp-8);
+}
+.ds-section {
+  margin-bottom: var(--sp-9);
+}
+.ds-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  border-left: 4px solid var(--farsa-red);
+  padding-left: var(--sp-4);
+}
+.ds-grid {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+/* Ruído de fundo sutil para superfícies escuras (papel queimado / textura cinemática) */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+}
