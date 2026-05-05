@@ -73,12 +73,6 @@
       });
     });
 
-    // Abre o primeiro item por padrão
-    if (items[0]) {
-      items[0].classList.add('is-open');
-      const firstBtn = items[0].querySelector('.faq__question');
-      if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
-    }
   }
 
   /* ----------------------------------------------------------
