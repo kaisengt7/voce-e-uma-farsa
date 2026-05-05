@@ -746,6 +746,9 @@ a { color: inherit; }
   transform: translate(-3px, -3px);
   box-shadow: 8px 8px 0 var(--farsa-red);
 }
+.product-card--featured:hover {
+  box-shadow: 8px 8px 0 var(--farsa-bone);
+}
 .product-card--featured {
   border-color: var(--farsa-red);
 }
