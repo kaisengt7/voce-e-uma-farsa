@@ -916,10 +916,15 @@ a { color: inherit; }
   margin-bottom: var(--sp-6);
 }
 .urgency-section .btn-cta {
+  background: var(--farsa-bone);
+  color: var(--farsa-black);
   max-width: 520px;
   box-shadow: 8px 8px 0 var(--farsa-black);
 }
-.urgency-section .btn-cta:hover { box-shadow: 11px 11px 0 var(--farsa-black); }
+.urgency-section .btn-cta:hover {
+  background: var(--farsa-paper);
+  box-shadow: 11px 11px 0 var(--farsa-black);
+}
 
 /* ============================================================
    SEÇÃO 11 — FAQ
