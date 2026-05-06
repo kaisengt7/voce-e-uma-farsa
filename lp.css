@@ -583,25 +583,48 @@ a { color: inherit; }
   color: #444;
   margin: 0 0 var(--sp-6);
 }
-.authority__creds { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-3); }
+.authority__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-5);
+}
+.authority__stat {
+  background: var(--farsa-coal);
+  border: 1px solid var(--farsa-graphite);
+  padding: var(--sp-3) var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.authority__stat-num {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--farsa-red);
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+.authority__stat-desc {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--farsa-ash);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+.authority__creds { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
 .authority__cred {
   display: flex;
   gap: var(--sp-3);
   align-items: flex-start;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 0.9rem;
+  color: var(--farsa-ash);
   line-height: 1.4;
+  padding-left: var(--sp-3);
+  border-left: 2px solid var(--farsa-graphite);
 }
-.authority__cred::before {
-  content: "✔";
-  color: var(--farsa-red);
-  font-weight: 700;
-  font-size: 1rem;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.authority__cred strong { color: var(--farsa-black); }
+.authority__cred strong { color: var(--farsa-bone); }
 
 /* ============================================================
    SEÇÃO 8 — DEPOIMENTOS
