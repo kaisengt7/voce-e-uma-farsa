@@ -134,6 +134,46 @@
   }
 
   /* ----------------------------------------------------------
+     COUNT-UP ANIMATION (stats da seção autor)
+  ---------------------------------------------------------- */
+  function initCountUp() {
+    const stats = document.querySelectorAll('.authority__stat-num[data-count]');
+    if (!stats.length) return;
+
+    const DURATION = 1600;
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function animateStat(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / DURATION, 1);
+        const value = Math.round(easeOut(progress) * target);
+        el.textContent = prefix + value + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stats.forEach(animateStat);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(stats[0].closest('.authority__stats'));
+  }
+
+  /* ----------------------------------------------------------
      INIT
   ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
@@ -142,5 +182,6 @@
     initCheckboxes();
     initStickyCta();
     initSmoothScroll();
+    initCountUp();
   });
 }());

@@ -498,8 +498,10 @@ a { color: inherit; }
   max-height: 640px;
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(0.2) contrast(1.05);
-  border: var(--bd-thin);
+  filter: grayscale(0.1) contrast(1.05);
+  border: 2px solid var(--farsa-black);
+  box-shadow: 8px 8px 0 var(--farsa-red);
+  display: block;
 }
 .author-story__caption {
   font-family: var(--font-mono);
@@ -541,64 +543,12 @@ a { color: inherit; }
 /* ============================================================
    SEÇÃO 7 — AUTORIDADE
    ============================================================ */
-.authority {
-  background: var(--farsa-bone);
-  color: var(--farsa-black);
-  padding: var(--sp-9) 0;
-}
-.authority__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-7);
-}
-@media (min-width: 768px) {
-  .authority__inner { grid-template-columns: 1fr 1fr; gap: var(--sp-8); align-items: center; }
-}
-.authority__photo-wrap { position: relative; }
-.authority__photo {
-  width: 100%;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: top center;
-  filter: grayscale(0.1) contrast(1.05);
-  border: 2px solid var(--farsa-black);
-  box-shadow: 8px 8px 0 var(--farsa-red);
-  display: block;
-}
-.authority__photo-caption {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--farsa-ash);
-  margin: var(--sp-3) 0 0;
-}
-.authority__content {}
-.authority__content .eyebrow { color: var(--farsa-red); }
-.authority__content .section-title { color: var(--farsa-black); }
-.authority__quote {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--farsa-black);
-  border-left: 4px solid var(--farsa-red);
-  padding: var(--sp-3) var(--sp-4);
-  margin: var(--sp-5) 0;
-  background: rgba(216, 30, 30, 0.05);
-  line-height: 1.6;
-}
-.authority__bio {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: #444;
-  margin: 0 0 var(--sp-6);
-}
 .authority__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-2);
-  margin-bottom: var(--sp-5);
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-3);
 }
 .authority__stat {
   background: var(--farsa-coal);
@@ -626,16 +576,25 @@ a { color: inherit; }
 .authority__creds { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
 .authority__cred {
   display: flex;
-  gap: var(--sp-3);
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--sp-2) var(--sp-3);
+  border-left: 2px solid var(--farsa-red);
+  background: rgba(255,255,255,0.03);
+}
+.authority__cred-role {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--farsa-bone);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.authority__cred-desc {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--farsa-ash);
   line-height: 1.4;
-  padding-left: var(--sp-3);
-  border-left: 2px solid var(--farsa-graphite);
 }
-.authority__cred strong { color: var(--farsa-bone); }
 
 /* ============================================================
    SEÇÃO 8 — DEPOIMENTOS
@@ -1242,5 +1201,4 @@ a { color: inherit; }
 
   /* Fotos do autor — limitar altura no mobile */
   .author-story__photo { max-height: 380px; }
-  .authority__photo { max-height: 340px; }
 }
