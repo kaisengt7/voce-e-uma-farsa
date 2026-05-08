@@ -492,12 +492,13 @@ a { color: inherit; }
 @media (min-width: 768px) {
   .author-story__inner { grid-template-columns: 1fr 1fr; gap: var(--sp-8); align-items: start; }
 }
-.author-story__visual {}
+.author-story__visual { padding-top: 48px; }
 .author-story__photo {
   width: 100%;
   max-height: 640px;
   object-fit: cover;
   object-position: top center;
+  margin-top: 16px;
   filter: grayscale(0.1) contrast(1.05);
   border: 2px solid var(--farsa-black);
   box-shadow: 8px 8px 0 var(--farsa-red);
