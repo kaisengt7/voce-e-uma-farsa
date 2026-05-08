@@ -1257,10 +1257,6 @@ a { color: inherit; }
 .cookie-banner__btn--accept:hover { background: #b81818; }
 @media (max-width: 767px) {
   .cookie-banner {
-    top: 0;
-    bottom: auto;
-    border-top: none;
-    border-bottom: 2px solid var(--farsa-red);
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
