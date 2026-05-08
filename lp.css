@@ -1262,7 +1262,12 @@ a { color: inherit; }
     border-top: none;
     border-bottom: 2px solid var(--farsa-red);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 12px;
+    padding: 14px 16px;
+  }
+  .cookie-banner__actions {
+    flex-shrink: 1;
+    justify-content: flex-end;
   }
 }
