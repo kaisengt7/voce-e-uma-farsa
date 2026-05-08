@@ -1202,7 +1202,7 @@ a { color: inherit; }
   .final-cta__buttons .btn { width: 100%; }
 
   /* Fotos do autor — limitar altura no mobile */
-  .author-story__photo { max-height: 380px; }
+  .author-story__photo { max-height: 380px; box-shadow: 0 8px 0 var(--farsa-red); }
 }
 
 /* ============================================================
