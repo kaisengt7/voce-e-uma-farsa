@@ -9,7 +9,8 @@
    RESET / BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 body {
   margin: 0;
   padding: 0;
@@ -1057,7 +1058,7 @@ a { color: inherit; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.site-footer__bottom span { white-space: nowrap; }
+@media (min-width: 600px) { .site-footer__bottom span { white-space: nowrap; } }
 
 /* ============================================================
    STICKY CTA (mobile only)
@@ -1212,6 +1213,9 @@ a { color: inherit; }
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   background: var(--farsa-coal);
   border-top: 2px solid var(--farsa-red);
   padding: 16px 24px;
@@ -1227,7 +1231,7 @@ a { color: inherit; }
   font-size: 13px;
   color: var(--farsa-ash);
   flex: 1;
-  min-width: 200px;
+  min-width: 0;
   margin: 0;
   line-height: 1.5;
 }
