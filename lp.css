@@ -1048,6 +1048,8 @@ a { color: inherit; }
 .site-footer__bottom {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: var(--sp-2);
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1055,9 +1057,7 @@ a { color: inherit; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-@media (min-width: 600px) {
-  .site-footer__bottom { flex-direction: row; justify-content: space-between; }
-}
+.site-footer__bottom span { white-space: nowrap; }
 
 /* ============================================================
    STICKY CTA (mobile only)
