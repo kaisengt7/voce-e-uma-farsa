@@ -674,7 +674,7 @@ a { color: inherit; }
    ============================================================ */
 .offer {
   background: var(--farsa-ink);
-  padding: var(--sp-9) 0;
+  padding: var(--sp-9) 0 0;
   border-top: var(--bd-thin);
 }
 .offer__grid {
