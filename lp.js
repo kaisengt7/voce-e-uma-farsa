@@ -176,6 +176,44 @@
   /* ----------------------------------------------------------
      INIT
   ---------------------------------------------------------- */
+  /* ----------------------------------------------------------
+     COOKIES — consentimento LGPD / Meta Pixel
+  ---------------------------------------------------------- */
+  function initPixel() {
+    if (typeof fbq === 'function') {
+      fbq('init', '576682767841267');
+      fbq('track', 'PageView');
+    }
+  }
+
+  function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    const consent = localStorage.getItem('farsa_cookies_consent');
+
+    if (consent === 'true') {
+      initPixel();
+      banner.classList.add('hidden');
+      return;
+    }
+    if (consent === 'false') {
+      banner.classList.add('hidden');
+      return;
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('farsa_cookies_consent', 'true');
+      initPixel();
+      banner.classList.add('hidden');
+    });
+
+    document.getElementById('cookie-reject').addEventListener('click', () => {
+      localStorage.setItem('farsa_cookies_consent', 'false');
+      banner.classList.add('hidden');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initFaq();
@@ -183,5 +221,6 @@
     initStickyCta();
     initSmoothScroll();
     initCountUp();
+    initCookieBanner();
   });
 }());

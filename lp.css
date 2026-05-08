@@ -1203,3 +1203,51 @@ a { color: inherit; }
   /* Fotos do autor — limitar altura no mobile */
   .author-story__photo { max-height: 380px; }
 }
+
+/* ============================================================
+   BANNER DE COOKIES (LGPD)
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--farsa-coal);
+  border-top: 2px solid var(--farsa-red);
+  padding: 16px 24px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cookie-banner.hidden { display: none; }
+.cookie-banner__text {
+  font-size: 13px;
+  color: var(--farsa-ash);
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+  line-height: 1.5;
+}
+.cookie-banner__text a { color: var(--farsa-red); }
+.cookie-banner__actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-banner__btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  line-height: 1;
+}
+.cookie-banner__btn--reject {
+  background: transparent;
+  border: 1px solid var(--farsa-graphite);
+  color: var(--farsa-ash);
+}
+.cookie-banner__btn--reject:hover { border-color: var(--farsa-ash); color: var(--farsa-bone); }
+.cookie-banner__btn--accept { background: var(--farsa-red); color: var(--farsa-bone); }
+.cookie-banner__btn--accept:hover { background: #b81818; }
