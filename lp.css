@@ -1251,3 +1251,14 @@ a { color: inherit; }
 .cookie-banner__btn--reject:hover { border-color: var(--farsa-ash); color: var(--farsa-bone); }
 .cookie-banner__btn--accept { background: var(--farsa-red); color: var(--farsa-bone); }
 .cookie-banner__btn--accept:hover { background: #b81818; }
+@media (max-width: 767px) {
+  .cookie-banner {
+    top: 0;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 2px solid var(--farsa-red);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
