@@ -9,7 +9,7 @@
    RESET / BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 44px; }
 body { overflow-x: hidden; }
 body {
   margin: 0;
@@ -264,6 +264,9 @@ a { color: inherit; }
   animation: book-float 3.6s ease-in-out infinite;
   will-change: transform, filter;
 }
+@media (prefers-reduced-motion: reduce) {
+  .hero__book-img { animation: none; }
+}
 
 /* ============================================================
    SEÇÃO 2 — AGITAÇÃO DO PROBLEMA
@@ -372,7 +375,7 @@ a { color: inherit; }
 .differential__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--sp-7);
+  gap: 0;
 }
 @media (min-width: 768px) {
   .differential__inner { grid-template-columns: 1fr 1fr; gap: 0; }
@@ -1177,6 +1180,16 @@ a { color: inherit; }
   /* Padding inferior para o sticky CTA não cobrir o conteúdo */
   body { padding-bottom: 72px; }
 
+  /* Reduzir padding vertical das seções: 96px → 64px por seção */
+  .agitation,
+  .revelation,
+  .discover,
+  .author-story,
+  .testimonials,
+  .faq,
+  .final-cta { padding-top: var(--sp-8); padding-bottom: var(--sp-8); }
+  .offer { padding-top: var(--sp-8); }
+
   /* Hero — reduzir padding e espaçamentos internos */
   .hero { padding: var(--sp-6) 0 var(--sp-5); }
   .hero__badge { margin-bottom: var(--sp-3); }
@@ -1195,14 +1208,23 @@ a { color: inherit; }
   /* Card físico aparece primeiro no mobile */
   .product-card--featured { order: -1; }
 
+  /* Card de produto — reduzir altura da imagem (320px → 220px) */
+  .product-card__visual { height: 220px; }
+
   /* Botões nos cards de produto — ocupam largura total */
   .product-card__price-row .btn { width: 100%; }
 
   /* Botões no CTA final — ocupam largura total */
   .final-cta__buttons .btn { width: 100%; }
 
+  /* Seção autor — remover espaço morto antes da foto em mobile */
+  .author-story__visual { padding-top: 0; }
+
   /* Fotos do autor — limitar altura no mobile */
   .author-story__photo { max-height: 380px; width: calc(100% - 12px); box-shadow: 8px 8px 0 var(--farsa-red); }
+
+  /* FAQ — reduzir padding horizontal para aproveitar espaço em telas pequenas */
+  .faq__question { padding: var(--sp-4) var(--sp-5); }
 }
 
 /* ============================================================
