@@ -1220,8 +1220,14 @@ a { color: inherit; }
   /* Seção autor — remover espaço morto antes da foto em mobile */
   .author-story__visual { padding-top: 0; }
 
-  /* Fotos do autor — limitar altura no mobile */
-  .author-story__photo { max-height: 380px; width: calc(100% - 12px); box-shadow: 8px 8px 0 var(--farsa-red); }
+  /* Fotos do autor — limitar altura; margin-bottom reserva espaço para a sombra inferior de 8px */
+  .author-story__photo { max-height: 380px; width: calc(100% - 12px); margin-bottom: 10px; box-shadow: 8px 8px 0 var(--farsa-red); }
+
+  /* Stats do autor — 2 colunas em mobile (3 colunas fica apertado demais em telas <375px) */
+  .authority__stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Pullquote — padding reduzido para não sufocar em telas estreitas */
+  .author-story__pullquote { padding: var(--sp-4); }
 
   /* FAQ — reduzir padding horizontal para aproveitar espaço em telas pequenas */
   .faq__question { padding: var(--sp-4) var(--sp-5); }
