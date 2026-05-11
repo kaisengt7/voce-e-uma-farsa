@@ -1217,6 +1217,10 @@ a { color: inherit; }
   /* Botões no CTA final — ocupam largura total */
   .final-cta__buttons .btn { width: 100%; }
 
+  /* Urgência — ocultar ✕ decorativos dos cantos (confundem com botão de fechar em mobile) */
+  .urgency-section::before,
+  .urgency-section::after { display: none; }
+
   /* Seção autor — remover espaço morto antes da foto em mobile */
   .author-story__visual { padding-top: 0; }
 
