@@ -1011,7 +1011,7 @@ a { color: inherit; }
   color: var(--farsa-ash);
   max-width: 320px;
 }
-.site-footer__col h5 {
+.site-footer__col h3 {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;

@@ -10,23 +10,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Google Fonts — carregado diretamente no head para evitar 3 níveis de @import -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <!-- Google Fonts — async para não bloquear render (FCP) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+
+  <!-- Preload da imagem LCP (hero) -->
+  <link rel="preload" as="image" href="assets/livro-3d.webp" type="image/webp" />
 
   <!-- Estilos -->
   <link rel="stylesheet" href="lp.css" />
 
-  <!-- Meta Pixel — carregado aqui, disparado só após consentimento de cookies -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  </script>
+  <!-- Meta Pixel — inicializado apenas após consentimento de cookies (ver lp.js) -->
 </head>
 <body>
 
@@ -77,14 +71,18 @@
     </div>
 
     <div class="hero__visual" aria-hidden="true">
-      <img
-        src="assets/livro-3d.png"
-        alt="Livro Você é uma Farsa — Everton Teles"
-        class="hero__book-img"
-        loading="eager"
-        width="480"
-        height="560"
-      />
+      <picture>
+        <source srcset="assets/livro-3d.webp" type="image/webp" />
+        <img
+          src="assets/livro-3d.png"
+          alt="Livro Você é uma Farsa — Everton Teles"
+          class="hero__book-img"
+          loading="eager"
+          fetchpriority="high"
+          width="480"
+          height="480"
+        />
+      </picture>
     </div>
   </div>
 </section>
@@ -254,12 +252,17 @@
   <div class="section-inner">
     <div class="author-story__inner">
       <div class="author-story__visual">
-        <img
-          src="assets/everton-1.png"
-          alt="Everton Teles"
-          class="author-story__photo"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="assets/everton-1.webp" type="image/webp" />
+          <img
+            src="assets/everton-1.png"
+            alt="Everton Teles"
+            class="author-story__photo"
+            loading="lazy"
+            width="400"
+            height="500"
+          />
+        </picture>
         <p class="author-story__caption">Everton Teles · Advogado, escritor e empresário</p>
 
         <div class="authority__stats">
@@ -394,11 +397,16 @@
       <article class="product-card">
         <span class="tag tag-red product-card__badge" style="left: 16px; right: auto;">EBOOK · PDF</span>
         <div class="product-card__visual">
-          <img
-            src="assets/livro-3d.png"
-            alt="E-book Você é uma Farsa — versão digital PDF"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="assets/livro-3d.webp" type="image/webp" />
+            <img
+              src="assets/livro-3d.png"
+              alt="E-book Você é uma Farsa — versão digital PDF"
+              loading="lazy"
+              width="480"
+              height="480"
+            />
+          </picture>
         </div>
         <div class="product-card__info">
           <h3 class="product-card__name">E-book</h3>
@@ -422,11 +430,16 @@
       <article class="product-card product-card--featured">
         <span class="tag tag-bone product-card__badge">+ POPULAR</span>
         <div class="product-card__visual">
-          <img
-            src="assets/livro-3d.png"
-            alt="Livro físico Você é uma Farsa"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="assets/livro-3d.webp" type="image/webp" />
+            <img
+              src="assets/livro-3d.png"
+              alt="Livro físico Você é uma Farsa"
+              loading="lazy"
+              width="480"
+              height="480"
+            />
+          </picture>
         </div>
         <div class="product-card__info">
           <h3 class="product-card__name">Livro Físico</h3>
@@ -452,7 +465,10 @@
   <!-- Garantia — fora do section-inner para ir de ponta a ponta -->
   <div class="guarantee" role="note" aria-label="Garantia de 7 dias">
     <div class="section-inner guarantee__inner">
-      <img src="assets/selo-garantia.png" alt="Selo de garantia de 7 dias" class="guarantee__seal" aria-hidden="true" />
+      <picture>
+        <source srcset="assets/selo-garantia.webp" type="image/webp" />
+        <img src="assets/selo-garantia.png" alt="Selo de garantia de 7 dias" class="guarantee__seal" aria-hidden="true" width="120" height="120" loading="lazy" />
+      </picture>
       <div class="guarantee__content">
         <h3 class="guarantee__title">Garantia Incondicional<br/>de 7 Dias</h3>
         <p class="guarantee__body">
@@ -593,14 +609,14 @@
         <p class="site-footer__tagline">Descubra sua real identidade e transforme-se em alguém realmente próspero.</p>
       </div>
       <div class="site-footer__col">
-        <h5>O Livro</h5>
+        <h3>O Livro</h3>
         <!-- TODO: links reais -->
         <a href="https://pay.kiwify.com.br/p2Mfqhs">Comprar E-book</a>
         <a href="https://pay.kiwify.com.br/kVASgKH">Comprar Físico</a>
         <a href="#conteudo">Conteúdo</a>
       </div>
       <div class="site-footer__col">
-        <h5>Contato</h5>
+        <h3>Contato</h3>
         <a href="mailto:Contato@evertonteles.com.br">Contato@evertonteles.com.br</a>
         <!-- TODO: links reais -->
         <a href="politica-de-privacidade.html">Política de Privacidade</a>
