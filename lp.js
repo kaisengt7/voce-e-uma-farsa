@@ -192,6 +192,19 @@
     fbq('track', 'PageView');
   }
 
+  function initClarity() {
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wq1uvt2xqk");
+  }
+
+  function initTrackers() {
+    initPixel();
+    initClarity();
+  }
+
   function initCookieBanner() {
     const banner = document.getElementById('cookie-banner');
     if (!banner) return;
@@ -199,7 +212,7 @@
     const consent = localStorage.getItem('farsa_cookies_consent');
 
     if (consent === 'true') {
-      initPixel();
+      initTrackers();
       banner.classList.add('hidden');
       return;
     }
@@ -210,7 +223,7 @@
 
     document.getElementById('cookie-accept').addEventListener('click', () => {
       localStorage.setItem('farsa_cookies_consent', 'true');
-      initPixel();
+      initTrackers();
       banner.classList.add('hidden');
     });
 
