@@ -556,7 +556,7 @@ a { color: inherit; }
   margin-bottom: var(--sp-3);
 }
 @media (min-width: 1100px) {
-  .authority__stats { grid-template-columns: repeat(4, 1fr); }
+  .authority__stats { grid-template-columns: repeat(2, 1fr); }
 }
 .authority__stat {
   background: var(--farsa-coal);
